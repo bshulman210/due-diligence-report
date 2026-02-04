@@ -130,7 +130,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>Due Diligence Search Report</h1>
+        <h1>Open Source Research Report</h1>
         <div class="subtitle">Confidential - For Internal Use Only</div>
     </div>
 
