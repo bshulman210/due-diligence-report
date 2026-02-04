@@ -43,9 +43,9 @@ class SearchController extends Controller
             $pdf->setPaper('letter', 'portrait');
             $pdf->setOption('isRemoteEnabled', true);
 
-            $slug = Str::slug($validated['name']);
-            $date = now()->format('Y-m-d');
-            $filename = "due-diligence-{$slug}-{$date}.pdf";
+            $name = $validated['name'];
+            $date = now()->setTimezone('America/New_York')->format('m.d.y');
+            $filename = "{$name}_Open Source_No Relevant Negative News Found_{$date}.pdf";
 
             return $pdf->download($filename);
         } catch (\Exception $e) {
