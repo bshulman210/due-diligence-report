@@ -38,7 +38,7 @@ class SearchService
             'q' => $query,
             'gl' => 'us',
             'hl' => 'en',
-            'num' => 10,
+            'num' => 20,
         ]);
 
         if (!$response->successful()) {
