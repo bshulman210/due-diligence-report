@@ -16,9 +16,9 @@ You need the following installed on your computer before you can use this tool.
 
 ### On macOS
 
-1. **PHP** (version 8.1 or higher)
+1. **PHP** (version 8.2–8.4 recommended)
    - Open Terminal and type: `php -v`
-   - If not installed: `brew install php`
+   - If not installed: `brew install php@8.4`
    - (If you don't have Homebrew, install it first from https://brew.sh)
 
 2. **Composer** (PHP package manager)
@@ -27,13 +27,15 @@ You need the following installed on your computer before you can use this tool.
 
 ### On Windows
 
-1. **PHP** (version 8.1 or higher)
+1. **PHP** (version 8.2–8.4 recommended)
    - Download from https://windows.php.net/download/
    - Or install via Chocolatey: `choco install php`
 
 2. **Composer**
    - Download the installer from https://getcomposer.org/download/
    - Run the installer and follow the prompts
+
+> **Note:** `npm install` is **not** required to run this project.
 
 ---
 
@@ -53,6 +55,7 @@ cp .env.example .env
 
 # 4. Generate the application key
 php artisan key:generate
+```
 
 ---
 
@@ -104,3 +107,4 @@ php artisan key:generate
 | "Serper API error" | Your API key may be incorrect or your free credits may be used up. Check your dashboard at https://serper.dev. |
 | Server won't start | Make sure nothing else is running on port 8000. Try: `php artisan serve --port=8080` |
 | "Class not found" errors | Run `composer install` again from the project folder. |
+| PDO::MYSQL_ATTR_SSL_CA deprecation warnings | You're on PHP 8.5+. These warnings are harmless, but to avoid them, downgrade to PHP 8.4: `brew install php@8.4 && brew unlink php && brew link php@8.4` |

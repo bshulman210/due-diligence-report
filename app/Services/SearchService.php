@@ -20,7 +20,7 @@ class SearchService
 
     public function buildQuery(string $name, string $cityState, int $queryIndex): string
     {
-        return '"' . $name . '" "' . $cityState . '" ' . $this->queryTemplates[$queryIndex];
+        return $name . ' + ' . $cityState . ' ' . $this->queryTemplates[$queryIndex];
     }
 
     public function executeSearch(string $query): array
