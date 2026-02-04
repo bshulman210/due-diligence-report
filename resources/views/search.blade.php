@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Due Diligence Search</title>
+    <title>Open Source Search</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center">
     <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-        <h1 class="text-2xl font-bold text-gray-800 mb-2 text-center">Due Diligence Search</h1>
+        <h1 class="text-2xl font-bold text-gray-800 mb-2 text-center">Open Source Search</h1>
         <p class="text-gray-500 text-sm text-center mb-6">Enter a person's name and location to generate a risk report.</p>
 
         @if(session('error'))
