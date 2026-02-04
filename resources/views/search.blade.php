@@ -9,7 +9,7 @@
 <body class="bg-gray-100 min-h-screen flex items-center justify-center">
     <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
         <h1 class="text-2xl font-bold text-gray-800 mb-2 text-center">Open Source Search</h1>
-        <p class="text-gray-500 text-sm text-center mb-6">Enter a person's name and location to generate a risk report.</p>
+        <p class="text-gray-500 text-sm text-center mb-6">Enter an individual or entity name and location to generate an open source PDF.</p>
 
         @if(session('error'))
             <div class="bg-red-50 border border-red-300 text-red-700 px-4 py-3 rounded mb-4 text-sm">
