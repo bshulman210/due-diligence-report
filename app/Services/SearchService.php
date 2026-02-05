@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 class SearchService
 {
     protected array $queryTemplates = [
-        'breach OR charge OR crime OR fraud OR laundering OR guilt OR scam OR bankrupt OR allege OR embezzle OR sanction OR investigate OR lawsuit OR corrupt OR arrest',
+        'AND breach OR charge OR crime OR fraud OR laundering OR guilt OR scam OR bankrupt OR allege OR embezzle OR sanction OR investigate OR lawsuit OR corrupt OR arrest',
         'fraud OR lien OR judgment OR suit OR convict OR investigate OR allege OR crime OR scheme OR inquiry OR settle',
         'plea OR barred OR terrorist OR traffic OR narcotic OR judgment OR criminal OR bribe OR scam OR launder OR corrupt OR charges OR hearing OR civil OR corruption',
     ];
