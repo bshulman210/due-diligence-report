@@ -41,7 +41,7 @@ async function handleSearch(request: Request, env: Env): Promise<Response> {
     for (const key of ['name', 'city', 'state']) {
         const value = form.get(key);
         const trimmed = typeof value === 'string' ? value.trim() : '';
-        if (!trimmed) {
+        if (!trimmed && key === 'name') {
             return json({ error: `The ${key} field is required.` }, 422);
         }
         if (trimmed.length > 255) {

@@ -24,7 +24,9 @@ const QUERY_LABELS = [
 ];
 
 export function buildQuery(name: string, cityState: string, queryIndex: number): string {
-    return `${name} + ${cityState} ${QUERY_TEMPLATES[queryIndex]}`;
+    const location = cityState !== '' ? ` + ${cityState}` : '';
+
+    return `${name}${location} ${QUERY_TEMPLATES[queryIndex]}`;
 }
 
 async function executeSearch(apiKey: string, query: string): Promise<{ links: SearchLink[]; totalResults: string }> {
@@ -63,7 +65,7 @@ export async function runSearches(apiKey: string, name: string, city: string, st
         throw new Error('Serper API key is not configured. Set the SERPER_API_KEY secret.');
     }
 
-    const cityState = `${city}, ${state}`;
+    const cityState = [city.trim(), state.trim()].filter(Boolean).join(', ');
 
     return Promise.all(
         QUERY_LABELS.map(async (label, i) => {

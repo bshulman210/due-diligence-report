@@ -314,7 +314,7 @@ export async function renderReport(data: ReportData): Promise<Uint8Array> {
     writer.header();
     writer.infoBox([
         ['Subject Name:', data.name],
-        ['Location:', `${data.city}, ${data.state}`],
+        ['Location:', [data.city, data.state].filter(Boolean).join(', ') || 'Not specified'],
         ['Report Generated:', data.generatedAt],
     ]);
 
