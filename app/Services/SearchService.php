@@ -20,7 +20,9 @@ class SearchService
 
     public function buildQuery(string $name, string $cityState, int $queryIndex): string
     {
-        return $name . ' + ' . $cityState . ' ' . $this->queryTemplates[$queryIndex];
+        $location = $cityState !== '' ? ' + ' . $cityState : '';
+
+        return $name . $location . ' ' . $this->queryTemplates[$queryIndex];
     }
 
     public function executeSearch(string $query): array
@@ -68,7 +70,7 @@ class SearchService
 
     public function runSearches(string $name, string $city, string $state): array
     {
-        $cityState = $city . ', ' . $state;
+        $cityState = implode(', ', array_filter([trim($city), trim($state)], 'strlen'));
         $results = [];
 
         for ($i = 0; $i < 3; $i++) {

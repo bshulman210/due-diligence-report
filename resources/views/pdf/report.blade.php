@@ -142,7 +142,7 @@
             </tr>
             <tr>
                 <td class="label">Location:</td>
-                <td>{{ $city }}, {{ $state }}</td>
+                <td>{{ implode(', ', array_filter([$city, $state])) ?: 'Not specified' }}</td>
             </tr>
             <tr>
                 <td class="label">Report Generated:</td>

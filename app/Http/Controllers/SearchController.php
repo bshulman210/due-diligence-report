@@ -18,8 +18,8 @@ class SearchController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'city' => 'required|string|max:255',
-            'state' => 'required|string|max:255',
+            'city' => 'nullable|string|max:255',
+            'state' => 'nullable|string|max:255',
         ]);
 
         set_time_limit(300);
@@ -28,14 +28,14 @@ class SearchController extends Controller
             $service = new SearchService();
             $results = $service->runSearches(
                 $validated['name'],
-                $validated['city'],
-                $validated['state']
+                $validated['city'] ?? '',
+                $validated['state'] ?? ''
             );
 
             $pdf = Pdf::loadView('pdf.report', [
                 'name' => $validated['name'],
-                'city' => $validated['city'],
-                'state' => $validated['state'],
+                'city' => $validated['city'] ?? '',
+                'state' => $validated['state'] ?? '',
                 'results' => $results,
                 'generatedAt' => now()->setTimezone('America/New_York')->format('F j, Y \a\t g:i A') . ' ET',
             ]);
